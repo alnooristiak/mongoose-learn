@@ -1,6 +1,6 @@
 import express, { Application, NextFunction, Request, Response } from 'express';
 import cors from 'cors';
-import { Schema } from 'mongoose';
+import { Schema, model } from 'mongoose';
 
 const app: Application = express()
 
@@ -35,7 +35,7 @@ app.get('/', (req: Request, res: Response, next: NextFunction) => {
         emargencyContactNo: string;
         presentAddress: string;
         parmanentAddress: string;
-    }
+    };
     // creating schema using interface IUser
     const userSchema = new Schema<IUser>({
         id: {
@@ -67,7 +67,7 @@ app.get('/', (req: Request, res: Response, next: NextFunction) => {
         dateOfBirth: {
             type: String,
         },
-        gender: { 
+        gender: {
             type: String,
             enum: ["male", "female"]
         },
@@ -90,10 +90,34 @@ app.get('/', (req: Request, res: Response, next: NextFunction) => {
             type: String,
             require: true,
         },
-        
-
         // avatar: String
     });
+
+    const User = model<IUser>("User", userSchema);
+
+    const createUserToDb = async () => {
+        const user = new User({
+            id: "487277",
+            role: "77",
+            password: "clg",
+            name: {
+                firstName: "Al",
+                middleName: "Istiak",
+                lastName: "Mahmud",
+            },
+            // dateOfBirth?: string;
+            gender: "male",
+            email: "alnooristiak@gmail.com",
+            contactNo: "01710335722",
+            emargencyContactNo: "01710335722",
+            presentAddress: "barabkund-4312",
+            parmanentAddress: "barabkund-4312",
+        });
+        await user.save();
+        console.log(user); 
+    }
+    createUserToDb();
+
     // res.send('Hello World!');
     // next();
 })

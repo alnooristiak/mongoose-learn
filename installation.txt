@@ -1,0 +1,19 @@
+** BEASIC INSTALLATION FOR ALL TIME **
+first install mongoDB Database,
+second install mongoDB Compous (GUI),
+
+** THIS RULL FOR ALL PROJECT **
+create a folder => npm init => install typescript (for dev depandence) => install express => install mongoss => and install => npm i ts-node-dev
+
+-->
+
+edit packge.json file like bellow--> (thsi section)
+"scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+},
+
+create a folder name was => (src) => create a file name like (server.ts)
+
+
+RUN THE PROJECT ==> npm run dev

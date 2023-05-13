@@ -18,6 +18,23 @@ app.get('/', (req: Request, res: Response, next: NextFunction) => {
      step3: model
      step4: database Query
      */
+    interface Iuser {
+        id: string;
+        role: string;
+        password: string;
+        name: {
+            firstName: string;
+            middleName: string;
+            lastName: string;
+        };
+        dateOfBirth ?: string;
+        gender: "male" | "female" ;
+        email ?: string;
+        contactNo: string;
+        emargencyContactNo: string;
+        presentAddress: string;
+        parmanentAddress: string;
+    }
 
 
 

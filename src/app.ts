@@ -11,8 +11,18 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 app.get('/', (req: Request, res: Response, next: NextFunction) => {
-    res.send('Hello World!');
-    next();
+    // inserting a test data in to mongodb 
+    /*
+     step1: interface
+     step2: schema
+     step3: model
+     step4: database Query
+     */
+
+
+
+    // res.send('Hello World!');
+    // next();
 })
 
 export default app;
